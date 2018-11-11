@@ -9,7 +9,7 @@
 import Foundation
 
 private struct FlickrProviderConstants{
-    static let apiKey = "1fb7d9bbf4b72651d53f8f8623bf08bf"
+    static let apiKey = "9ee50ca8450eb66535f8003b7c1d34e6"
     static let flickrAPIBaseURL = "https://api.flickr.com/services/rest/"
     static let stat = "stat"
     static let ok = "ok"
