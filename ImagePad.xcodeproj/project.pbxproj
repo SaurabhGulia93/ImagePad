@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091252BD21981F5E00365205 /* IPMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252BC21981F5E00365205 /* IPMainViewController.swift */; };
+		091252BF2198552A00365205 /* IPImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252BE2198552A00365205 /* IPImageCollectionViewCell.swift */; };
+		091252C12198596600365205 /* IPCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252C02198596600365205 /* IPCachedImageView.swift */; };
+		091252C321985B3D00365205 /* IPCollectionFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252C221985B3D00365205 /* IPCollectionFooterView.swift */; };
+		091252C521985B7C00365205 /* ZoomTransitioningDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252C421985B7C00365205 /* ZoomTransitioningDelegate.swift */; };
+		091252C721985BD100365205 /* FlickrPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252C621985BD100365205 /* FlickrPhoto.swift */; };
+		091252C9219861F900365205 /* FlickrProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252C8219861F900365205 /* FlickrProvider.swift */; };
+		091252CD2198621F00365205 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252CC2198621F00365205 /* NetworkManager.swift */; };
+		091252CF2198622B00365205 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252CE2198622B00365205 /* CacheManager.swift */; };
+		091252D22198647800365205 /* IPImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252D02198647800365205 /* IPImageDetailViewController.swift */; };
 		09F3515E2198043B00CC062B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3515D2198043B00CC062B /* AppDelegate.swift */; };
-		09F351602198043B00CC062B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3515F2198043B00CC062B /* ViewController.swift */; };
 		09F351632198043B00CC062B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F351612198043B00CC062B /* Main.storyboard */; };
 		09F351662198043B00CC062B /* ImagePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09F351642198043B00CC062B /* ImagePad.xcdatamodeld */; };
 		09F351682198043D00CC062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F351672198043D00CC062B /* Assets.xcassets */; };
@@ -16,9 +25,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091252BC21981F5E00365205 /* IPMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPMainViewController.swift; sourceTree = "<group>"; };
+		091252BE2198552A00365205 /* IPImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		091252C02198596600365205 /* IPCachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCachedImageView.swift; sourceTree = "<group>"; };
+		091252C221985B3D00365205 /* IPCollectionFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPCollectionFooterView.swift; sourceTree = "<group>"; };
+		091252C421985B7C00365205 /* ZoomTransitioningDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomTransitioningDelegate.swift; sourceTree = "<group>"; };
+		091252C621985BD100365205 /* FlickrPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrPhoto.swift; sourceTree = "<group>"; };
+		091252C8219861F900365205 /* FlickrProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrProvider.swift; sourceTree = "<group>"; };
+		091252CC2198621F00365205 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		091252CE2198622B00365205 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
+		091252D02198647800365205 /* IPImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPImageDetailViewController.swift; sourceTree = "<group>"; };
 		09F3515A2198043B00CC062B /* ImagePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3515D2198043B00CC062B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09F3515F2198043B00CC062B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09F351622198043B00CC062B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09F351652198043B00CC062B /* ImagePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagePad.xcdatamodel; sourceTree = "<group>"; };
 		09F351672198043D00CC062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,15 +74,72 @@
 		09F3515C2198043B00CC062B /* ImagePad */ = {
 			isa = PBXGroup;
 			children = (
+				09F35175219810DA00CC062B /* Network */,
+				09F35174219810D300CC062B /* Model */,
+				09F35172219810C300CC062B /* Controller */,
+				09F35173219810CC00CC062B /* View */,
+				09F351762198111000CC062B /* Assets */,
+				09F351772198112E00CC062B /* LaunchScreen */,
 				09F3515D2198043B00CC062B /* AppDelegate.swift */,
-				09F3515F2198043B00CC062B /* ViewController.swift */,
-				09F351612198043B00CC062B /* Main.storyboard */,
-				09F351672198043D00CC062B /* Assets.xcassets */,
-				09F351692198043D00CC062B /* LaunchScreen.storyboard */,
 				09F3516C2198043D00CC062B /* Info.plist */,
 				09F351642198043B00CC062B /* ImagePad.xcdatamodeld */,
 			);
 			path = ImagePad;
+			sourceTree = "<group>";
+		};
+		09F35172219810C300CC062B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				091252BC21981F5E00365205 /* IPMainViewController.swift */,
+				091252D02198647800365205 /* IPImageDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		09F35173219810CC00CC062B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09F351612198043B00CC062B /* Main.storyboard */,
+				091252BE2198552A00365205 /* IPImageCollectionViewCell.swift */,
+				091252C02198596600365205 /* IPCachedImageView.swift */,
+				091252C221985B3D00365205 /* IPCollectionFooterView.swift */,
+				091252C421985B7C00365205 /* ZoomTransitioningDelegate.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		09F35174219810D300CC062B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				091252C621985BD100365205 /* FlickrPhoto.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		09F35175219810DA00CC062B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				091252C8219861F900365205 /* FlickrProvider.swift */,
+				091252CC2198621F00365205 /* NetworkManager.swift */,
+				091252CE2198622B00365205 /* CacheManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		09F351762198111000CC062B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				09F351672198043D00CC062B /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		09F351772198112E00CC062B /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				09F351692198043D00CC062B /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +213,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091252C321985B3D00365205 /* IPCollectionFooterView.swift in Sources */,
+				091252C721985BD100365205 /* FlickrPhoto.swift in Sources */,
+				091252D22198647800365205 /* IPImageDetailViewController.swift in Sources */,
+				091252CD2198621F00365205 /* NetworkManager.swift in Sources */,
+				091252BD21981F5E00365205 /* IPMainViewController.swift in Sources */,
+				091252C521985B7C00365205 /* ZoomTransitioningDelegate.swift in Sources */,
+				091252C12198596600365205 /* IPCachedImageView.swift in Sources */,
+				091252CF2198622B00365205 /* CacheManager.swift in Sources */,
+				091252BF2198552A00365205 /* IPImageCollectionViewCell.swift in Sources */,
 				09F351662198043B00CC062B /* ImagePad.xcdatamodeld in Sources */,
-				09F351602198043B00CC062B /* ViewController.swift in Sources */,
+				091252C9219861F900365205 /* FlickrProvider.swift in Sources */,
 				09F3515E2198043B00CC062B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ImagePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ImagePad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
