@@ -15,10 +15,6 @@ private struct FlickrProviderConstants{
     static let ok = "ok"
     static let photos = "photos"
     static let photo = "photo"
-    static let id = "id"
-    static let farm = "farm"
-    static let server = "server"
-    static let secret = "secret"
     struct Messages {
         static let searchURLCreationFailed = "Failed to create search URL."
         static let parsingFailed = "Failed to parse result."
@@ -67,18 +63,7 @@ class FlickrProvider: MainViewControllerProtocol{
             if stat == FlickrProviderConstants.ok {
                 guard let photosContainer = resultsDictionary[FlickrProviderConstants.photos] as? [String: AnyObject], let photosReceived = photosContainer[FlickrProviderConstants.photo] as? [[String: AnyObject]] else {return nil}
                 
-                var flickrPhotos = [FlickrPhoto]()
-                
-                for photoObject in photosReceived {
-                    guard let photoID = photoObject[FlickrProviderConstants.id] as? String,
-                        let farm = photoObject[FlickrProviderConstants.farm] as? Int ,
-                        let server = photoObject[FlickrProviderConstants.server] as? String ,
-                        let secret = photoObject[FlickrProviderConstants.secret] as? String else { break }
-                    
-                    let flickrPhoto = FlickrPhoto(photoID: photoID, server: server, secret: secret, farm: farm)
-                    
-                    flickrPhotos.append(flickrPhoto)
-                }
+                let flickrPhotos = photosReceived.compactMap { try? FlickrPhoto(data: $0) }
                 return flickrPhotos
             }
         } catch _ {

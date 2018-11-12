@@ -28,12 +28,13 @@ private struct MainViewControllerConstants{
     struct Messages{
         static let itemsNeededAlertSheetMessage = "How many items should each row have?"
         static let searchDefaultPlaceholder = "Search"
+        static let errorMsg = "No Results Found"
     }
 }
 
 class IPMainViewController: UICollectionViewController {
 
-    fileprivate var photosDataSource: [Photo]? = nil
+    fileprivate var photosDataSource: [Photo] = []
     fileprivate var delegate: MainViewControllerProtocol? = nil
     fileprivate var itemsPerRow = MainViewControllerConstants.defaultNumberOfColumns
     fileprivate let searchController = UISearchController(searchResultsController: nil)
@@ -80,24 +81,26 @@ class IPMainViewController: UICollectionViewController {
             let indexPath = self.collectionView?.indexPath(for: cell) {
             zooimingCellIndexPath = indexPath
             
-            guard let detailViewController = segue.destination as? IPImageDetailViewController,
-                let dataSource = photosDataSource else {
+            guard let detailViewController = segue.destination as? IPImageDetailViewController else {
                 return
             }
-            detailViewController.photo = dataSource[indexPath.item]
+            detailViewController.photo = photosDataSource[indexPath.item]
         }
     }
     
-    fileprivate func search(forPage pageNumber: Int, completion:@escaping ([Photo]?)->Void){
+    fileprivate func search(forPage pageNumber: Int, completion:@escaping ([Photo])->Void){
         guard let searchString = searchString else{ return }
         delegate?.searchPhotos(forSearchString: searchString, pageNumber: pageNumber, andItemsPerPage: MainViewControllerConstants.itemsPerPage, completion: {[weak self](results, error) in
             self?.isLoading = false
             DispatchQueue.main.async {
-                if error != nil || results?.count == 0{
-                    self?.showError(error: error ?? "No Results Found")
-                }else{
-                    completion(results)
+                if error != nil {
+                    self?.showError(error: error ?? MainViewControllerConstants.Messages.errorMsg)
                 }
+                guard let photos = results else {
+                    self?.showError(error: MainViewControllerConstants.Messages.errorMsg)
+                    return
+                }
+                completion(photos)
                 self?.collectionView?.reloadData()
             }
         })
@@ -105,10 +108,9 @@ class IPMainViewController: UICollectionViewController {
     }
     
     fileprivate func searchNextPage(){
-        let currentPage = (photosDataSource?.count ?? 0)/MainViewControllerConstants.itemsPerPage
+        let currentPage = (photosDataSource.count)/MainViewControllerConstants.itemsPerPage
         search(forPage: currentPage+1, completion:{[weak self] (results) in
-            guard let results = results else {return}
-            self?.photosDataSource?.append(contentsOf: results)
+            self?.photosDataSource.append(contentsOf: results)
         })
     }
     
@@ -126,7 +128,7 @@ class IPMainViewController: UICollectionViewController {
 extension IPMainViewController{
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return photosDataSource?.count ?? 0
+        return photosDataSource.count
     }
     
     
@@ -138,10 +140,10 @@ extension IPMainViewController{
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
-        let photo = photosDataSource![indexPath.item]
+        let photo = photosDataSource[indexPath.item]
         (cell as! IPImageCollectionViewCell).fillData(photo)
         
-        guard let currentDataSourceSize = photosDataSource?.count else{return}
+        let currentDataSourceSize = photosDataSource.count
         if currentDataSourceSize - indexPath.row == (2 * itemsPerRow){
             searchNextPage()
         }
@@ -188,10 +190,9 @@ extension IPMainViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if isFulfillingSearchConditions{
             search(forPage: 0, completion: {[weak self] results in
-                guard let results = results else { return }
                 self?.photosDataSource = results
             })
-            self.photosDataSource?.removeAll()
+            self.photosDataSource.removeAll()
             self.collectionView?.reloadData()
             
             searchController.isActive = false
