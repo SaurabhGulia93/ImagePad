@@ -18,7 +18,7 @@ protocol MainViewControllerProtocol {
 }
 
 private struct MainViewControllerConstants{
-    static let optionsForItemsPerRow: Array<Int> = [2, 3, 4]
+    static let optionsForItemsPerRow: [Int] = [2, 3, 4]
     static let cellPadding: CGFloat = 10.0
     static let defaultNumberOfColumns = 4
     static let cellIdentifier = "ImageCollectionViewCell"
@@ -80,13 +80,16 @@ class IPMainViewController: UICollectionViewController {
             let indexPath = self.collectionView?.indexPath(for: cell) {
             zooimingCellIndexPath = indexPath
             
-            guard let detailViewController = segue.destination as? IPImageDetailViewController else{ return }
-            detailViewController.photo = photosDataSource![indexPath.item]
+            guard let detailViewController = segue.destination as? IPImageDetailViewController,
+                let dataSource = photosDataSource else {
+                return
+            }
+            detailViewController.photo = dataSource[indexPath.item]
         }
     }
     
     fileprivate func search(forPage pageNumber: Int, completion:@escaping ([Photo]?)->Void){
-        guard let searchString = searchString else{return}
+        guard let searchString = searchString else{ return }
         delegate?.searchPhotos(forSearchString: searchString, pageNumber: pageNumber, andItemsPerPage: MainViewControllerConstants.itemsPerPage, completion: {[weak self](results, error) in
             self?.isLoading = false
             DispatchQueue.main.async {
@@ -180,11 +183,12 @@ extension IPMainViewController: UICollectionViewDelegateFlowLayout{
     }
 }
 
+// MARK: - UISearchBarDelegate Implementation
 extension IPMainViewController: UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if isFulfillingSearchConditions{
             search(forPage: 0, completion: {[weak self] results in
-                guard let results = results else{return}
+                guard let results = results else { return }
                 self?.photosDataSource = results
             })
             self.photosDataSource?.removeAll()
@@ -200,6 +204,7 @@ extension IPMainViewController: UISearchBarDelegate{
     }
 }
 
+// MARK: - Zooming transition
 extension IPMainViewController: ZoomingViewController{
     func zoomingImageView(for transition: ZoomTransitioningDelegate) -> UIImageView? {
         guard let zooimingCellIndexPath = zooimingCellIndexPath, let zoomingCell: IPImageCollectionViewCell = self.collectionView?.cellForItem(at: zooimingCellIndexPath) as? IPImageCollectionViewCell else{
