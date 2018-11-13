@@ -108,10 +108,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="delegate" destination="jwd-71-Pbh" id="7ef-tM-xlf"/>
                         <segue destination="2mI-c4-srA" kind="relationship" relationship="rootViewController" id="1Td-CD-4BI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FU4-Rv-i26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="jwd-71-Pbh" customClass="ZoomTransitioningDelegate" customModule="ImagePad" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="464.80000000000001" y="-2096.4017991004498"/>
         </scene>
