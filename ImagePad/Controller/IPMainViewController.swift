@@ -39,7 +39,6 @@ class IPMainViewController: UICollectionViewController {
     fileprivate var itemsPerRow = MainViewControllerConstants.defaultNumberOfColumns
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     fileprivate var searchString: String? = nil
-    fileprivate var searckTask: DispatchWorkItem? = nil
     fileprivate var isLoading: Bool = false
     fileprivate var zooimingCellIndexPath: IndexPath? = nil
     fileprivate var isFulfillingSearchConditions: Bool{
@@ -63,6 +62,8 @@ class IPMainViewController: UICollectionViewController {
         self.navigationItem.titleView = searchController.searchBar
         self.navigationItem.titleView?.tintColor = .white
         searchController.hidesNavigationBarDuringPresentation = false
+        
+        collectionView?.contentInset = UIEdgeInsetsMake(10, 5, 0, 5)
     }
 
     @IBAction func optionsSelected(_ sender: UIBarButtonItem) {
@@ -173,7 +174,7 @@ extension IPMainViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
         
-        let paddingPerRow = MainViewControllerConstants.cellPadding * CGFloat(itemsPerRow - 1)
+        let paddingPerRow = MainViewControllerConstants.cellPadding * CGFloat(itemsPerRow)
         let availableSpace = self.view.frame.width - paddingPerRow
         let dimensionOfEachItem = availableSpace/CGFloat(itemsPerRow)
         

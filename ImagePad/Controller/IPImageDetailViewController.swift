@@ -12,9 +12,10 @@ class IPImageDetailViewController: UIViewController {
     var photo: Photo? = nil
     @IBOutlet weak var imageView: IPCachedImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         self.activityIndicator.stopAnimating()
-        
+
         if let _ = photo, let highResPhotoURL = photo?.highResPhotoURL{
             if CacheManager.shared.isImageCached(for: highResPhotoURL.absoluteString){
                 imageView.loadImage(atURL: highResPhotoURL)
