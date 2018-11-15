@@ -18,9 +18,9 @@ class IPImageCollectionViewCell: UICollectionViewCell {
         imageView.layer.masksToBounds = true
     }
     
-    func fillData(_ data: Photo?){
+    func fillData(_ data: Photo){
         photo = data
-        guard let photo = photo, let thumbnailURL = photo.thumbnailURL else {
+        guard let thumbnailURL = data.thumbnailURL else {
             return
         }
         self.imageView.loadImage(atURL: thumbnailURL)
@@ -29,7 +29,9 @@ class IPImageCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         self.imageView.image = nil
     }
-    
+}
+
+extension IPImageCollectionViewCell {
     func reducePriorityOfDownloadtaskForCell(){
         guard let photo = photo, let thumbnailURL = photo.thumbnailURL else {
             return
