@@ -19,7 +19,6 @@
 		091252D22198647800365205 /* IPImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252D02198647800365205 /* IPImageDetailViewController.swift */; };
 		09F3515E2198043B00CC062B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3515D2198043B00CC062B /* AppDelegate.swift */; };
 		09F351632198043B00CC062B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F351612198043B00CC062B /* Main.storyboard */; };
-		09F351662198043B00CC062B /* ImagePad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09F351642198043B00CC062B /* ImagePad.xcdatamodeld */; };
 		09F351682198043D00CC062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F351672198043D00CC062B /* Assets.xcassets */; };
 		09F3516B2198043D00CC062B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F351692198043D00CC062B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -38,7 +37,6 @@
 		09F3515A2198043B00CC062B /* ImagePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3515D2198043B00CC062B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F351622198043B00CC062B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		09F351652198043B00CC062B /* ImagePad.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ImagePad.xcdatamodel; sourceTree = "<group>"; };
 		09F351672198043D00CC062B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09F3516A2198043D00CC062B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09F3516C2198043D00CC062B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				09F351772198112E00CC062B /* LaunchScreen */,
 				09F3515D2198043B00CC062B /* AppDelegate.swift */,
 				09F3516C2198043D00CC062B /* Info.plist */,
-				09F351642198043B00CC062B /* ImagePad.xcdatamodeld */,
 			);
 			path = ImagePad;
 			sourceTree = "<group>";
@@ -222,7 +219,6 @@
 				091252C12198596600365205 /* IPCachedImageView.swift in Sources */,
 				091252CF2198622B00365205 /* CacheManager.swift in Sources */,
 				091252BF2198552A00365205 /* IPImageCollectionViewCell.swift in Sources */,
-				09F351662198043B00CC062B /* ImagePad.xcdatamodeld in Sources */,
 				091252C9219861F900365205 /* FlickrProvider.swift in Sources */,
 				09F3515E2198043B00CC062B /* AppDelegate.swift in Sources */,
 			);
@@ -422,19 +418,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		09F351642198043B00CC062B /* ImagePad.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				09F351652198043B00CC062B /* ImagePad.xcdatamodel */,
-			);
-			currentVersion = 09F351652198043B00CC062B /* ImagePad.xcdatamodel */;
-			path = ImagePad.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 09F351522198043B00CC062B /* Project object */;
 }

@@ -86,6 +86,7 @@ class NetworkManager {
             return nil
         }
     }
+    
     func reducePriorityOfTask(withURL url: URL){
         if downloadTasks.keys.contains(url){
             let downloadTask = downloadTasks[url]
