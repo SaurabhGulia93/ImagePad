@@ -34,7 +34,11 @@ private struct MainViewControllerConstants{
 
 class IPMainViewController: UICollectionViewController {
 
-    fileprivate var photosDataSource: [Photo] = []
+    fileprivate var photosDataSource: [Photo] = [] {
+        didSet {
+            collectionView?.reloadData()
+        }
+    }
     fileprivate var delegate: MainViewControllerProtocol? = nil
     fileprivate var itemsPerRow = MainViewControllerConstants.defaultNumberOfColumns
     fileprivate let searchController = UISearchController(searchResultsController: nil)
@@ -101,7 +105,6 @@ class IPMainViewController: UICollectionViewController {
                     return
                 }
                 completion(photos)
-                self?.collectionView?.reloadData()
             }
         })
         isLoading = true
@@ -208,9 +211,7 @@ extension IPMainViewController: UISearchBarDelegate{
             search(forPage: 0, completion: {[weak self] results in
                 self?.photosDataSource = results
             })
-            self.photosDataSource.removeAll()
-            self.collectionView?.reloadData()
-            
+            self.photosDataSource.removeAll()            
             searchController.isActive = false
             searchBar.placeholder = searchString
         }

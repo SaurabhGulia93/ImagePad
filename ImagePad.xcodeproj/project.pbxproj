@@ -17,6 +17,7 @@
 		091252CD2198621F00365205 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252CC2198621F00365205 /* NetworkManager.swift */; };
 		091252CF2198622B00365205 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252CE2198622B00365205 /* CacheManager.swift */; };
 		091252D22198647800365205 /* IPImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091252D02198647800365205 /* IPImageDetailViewController.swift */; };
+		096006CB219DF134009000FD /* StyleConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096006CA219DF134009000FD /* StyleConstants.swift */; };
 		09F3515E2198043B00CC062B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F3515D2198043B00CC062B /* AppDelegate.swift */; };
 		09F351632198043B00CC062B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09F351612198043B00CC062B /* Main.storyboard */; };
 		09F351682198043D00CC062B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09F351672198043D00CC062B /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		091252CC2198621F00365205 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		091252CE2198622B00365205 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		091252D02198647800365205 /* IPImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPImageDetailViewController.swift; sourceTree = "<group>"; };
+		096006CA219DF134009000FD /* StyleConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleConstants.swift; sourceTree = "<group>"; };
 		09F3515A2198043B00CC062B /* ImagePad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09F3515D2198043B00CC062B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09F351622198043B00CC062B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		096006C9219DF123009000FD /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				096006CA219DF134009000FD /* StyleConstants.swift */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
 		09F351512198043B00CC062B = {
 			isa = PBXGroup;
 			children = (
@@ -72,6 +82,7 @@
 		09F3515C2198043B00CC062B /* ImagePad */ = {
 			isa = PBXGroup;
 			children = (
+				096006C9219DF123009000FD /* Style */,
 				09F35175219810DA00CC062B /* Network */,
 				09F35174219810D300CC062B /* Model */,
 				09F35172219810C300CC062B /* Controller */,
@@ -211,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				091252C321985B3D00365205 /* IPCollectionFooterView.swift in Sources */,
+				096006CB219DF134009000FD /* StyleConstants.swift in Sources */,
 				091252C721985BD100365205 /* FlickrPhoto.swift in Sources */,
 				091252D22198647800365205 /* IPImageDetailViewController.swift in Sources */,
 				091252CD2198621F00365205 /* NetworkManager.swift in Sources */,

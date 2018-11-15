@@ -13,6 +13,11 @@ class IPImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: IPCachedImageView!
     var photo: Photo? = nil
     
+    override func awakeFromNib() {
+//        imageView.layer.borderWidth = 2
+//        imageView.layer.borderColor = UIColor.MustardColor.cgColor
+    }
+    
     func fillData(_ data: Photo){
         photo = data
         guard let thumbnailURL = data.thumbnailURL else {
