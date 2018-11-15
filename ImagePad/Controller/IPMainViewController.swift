@@ -20,7 +20,7 @@ protocol MainViewControllerProtocol {
 private struct MainViewControllerConstants{
     static let optionsForItemsPerRow: [Int] = [2, 3, 4]
     static let cellPadding: CGFloat = 10.0
-    static let defaultNumberOfColumns = 4
+    static let defaultNumberOfColumns = 3
     static let cellIdentifier = "ImageCollectionViewCell"
     static let footerIdentifier = "CustomFooterView"
     static let itemsPerPage = 25
@@ -60,7 +60,6 @@ class IPMainViewController: UICollectionViewController {
         searchController.searchBar.delegate = self
         self.definesPresentationContext = true
         self.navigationItem.titleView = searchController.searchBar
-        self.navigationItem.titleView?.tintColor = .white
         searchController.hidesNavigationBarDuringPresentation = false
         
         collectionView?.contentInset = UIEdgeInsetsMake(10, 5, 0, 5)
@@ -166,6 +165,22 @@ extension IPMainViewController{
         let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: MainViewControllerConstants.footerIdentifier, for: indexPath) as! IPCollectionFooterView
         isLoading ? footerView.loader.startAnimating(): footerView.loader.stopAnimating()
         return footerView
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.1) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? IPImageCollectionViewCell {
+                cell.imageView.transform = .init(scaleX: 0.90, y: 0.90)
+            }
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? IPImageCollectionViewCell {
+                cell.imageView.transform = .identity
+            }
+        }
     }
 }
 
